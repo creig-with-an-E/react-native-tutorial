@@ -1,7 +1,8 @@
-import Reat from 'react';
+import React from 'react';
 import { View, Text} from 'react-native';
 
 const AlbumList =()=>{
+
     return (
         <View>
             <Text>AlbumList</Text>
