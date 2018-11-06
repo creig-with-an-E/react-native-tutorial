@@ -4,21 +4,34 @@ import Card from './Card';
 import CardSection from './CardSection';
 
 const AlbumDetail =(props) =>{
-    const {title , artist ,thumbnail_image } = props.album;
-      return (
+    const { title ,
+            artist ,
+            thumbnail_image ,
+            image } = props.album;
+
+    const { thumbnailStyle ,
+            headerContentStyle,
+            thumbnailContainer,
+            headerText,
+            imageStyle } = styles;
+    return (
          <Card>
             <CardSection>
-                <View>
+                <View style = {thumbnailContainer}>
                     {/*this is the image area. images do not automatically size to fit the area*/}
-                    <Image style={styles.thumbnailStyle} source={{uri:  thumbnail_image}}/>
+                    <Image style={thumbnailStyle} source={{uri:  thumbnail_image}}/>
                 </View>
-                <View style={styles.headerContentStyle}>
-                    <Text > {title } </Text>
+                <View style={headerContentStyle}>
+                    <Text style={headerText}> {title } </Text>
                     <Text > {artist } </Text>
                 </View>
 
             </CardSection>
+            <CardSection>
+                <Image style={ imageStyle } source={{uri: image}}></Image>
+            </CardSection>
          </Card>
+
         )
 };
 
@@ -28,9 +41,24 @@ const styles = {
         justifyContent:'space-around',
 
     },
+    headerText :{
+      fontSize:18,
+    },
     thumbnailStyle:{
       height:50,
       width:50
+    },
+    thumbnailContainer :{
+        justifyContent:'center',
+        alignItems:'center',
+        marginLeft:10,
+        marginRight:10,
+    },
+    imageStyle :{
+        //sets the width of the image to fill the area
+        height:300,
+        flex: 1,
+        width:null,
     }
 };
 
