@@ -1,18 +1,20 @@
 import React from 'react';
-import { Text , View} from 'react-native';
+import { Text , View, Image} from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 
 const AlbumDetail =(props) =>{
+    const {title , artist ,thumbnail_image } = props.album;
       return (
          <Card>
             <CardSection>
                 <View>
-
+                    {/*this is the image area. images do not automatically size to fit the area*/}
+                    <Image style={styles.thumbnailStyle} source={{uri:  thumbnail_image}}/>
                 </View>
                 <View style={styles.headerContentStyle}>
-                    <Text > {props.album.title } </Text>
-                    <Text > {props.album.artist } </Text>
+                    <Text > {title } </Text>
+                    <Text > {artist } </Text>
                 </View>
 
             </CardSection>
@@ -25,6 +27,10 @@ const styles = {
         flexDirection:'column',
         justifyContent:'space-around',
 
+    },
+    thumbnailStyle:{
+      height:50,
+      width:50
     }
 };
 
