@@ -6,6 +6,7 @@ const CardSection =(props) => {
         <View style={styles.containerStyle}>
             {props.children}
         </View>
+
     )
 }
 
@@ -20,5 +21,9 @@ const styles ={
         flexDirection: 'row',
         borderColor :'#ddd',
         position :'relative'
+    },
+    textContainer :{
+        flexDirection: 'column',
+        justifyContent: 'space-around'
     }
 }
